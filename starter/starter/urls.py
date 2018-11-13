@@ -20,11 +20,12 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from clients import views
 
 urlpatterns = [
+    path('', views.api_root),
     path('admin/', admin.site.urls),
-    path('clients/', views.ClientList.as_view()),
-    path('clients/<int:pk>/', views.ClientList.as_view()),
-    path('users/', views.UserList.as_view()),
-    path('users/<int:pk>/', views.UserDetail.as_view())
+    path('clients/', views.ClientList.as_view(), name='client-list'),
+    path('clients/<int:pk>/', views.ClientDetail.as_view(), name='client-detail'),
+    path('users/', views.UserList.as_view(), name='user-list'),
+    path('users/<int:pk>/', views.UserDetail.as_view(), name='user-detail')
 ]
 
 urlpatterns += [

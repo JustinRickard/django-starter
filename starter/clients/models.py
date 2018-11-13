@@ -10,4 +10,8 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        print("Saving client...")
+        super(Client, self).save(*args,**kwargs)
     
